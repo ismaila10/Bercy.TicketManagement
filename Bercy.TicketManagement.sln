@@ -15,7 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{8EF66FF7-A3F7-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F1CA021D-D2DC-493C-AD0F-05C9E6798981}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bercy.TicketManagement.Domain", "Bercy.TicketManagement.Domain\Bercy.TicketManagement.Domain.csproj", "{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -24,6 +36,7 @@ Global
 		{9DD1DBA8-FFAF-4B9B-96EC-38F59EA69A42} = {CFA1950D-6079-4390-B5A5-937045CE56F9}
 		{994E73E3-332D-4E50-8453-5C90FF11BC36} = {CFA1950D-6079-4390-B5A5-937045CE56F9}
 		{8EF66FF7-A3F7-478F-8879-D7A5810AC36B} = {CFA1950D-6079-4390-B5A5-937045CE56F9}
+		{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B} = {9DD1DBA8-FFAF-4B9B-96EC-38F59EA69A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED4BD288-1DA3-4EC5-8404-D7BADC7155B8}
