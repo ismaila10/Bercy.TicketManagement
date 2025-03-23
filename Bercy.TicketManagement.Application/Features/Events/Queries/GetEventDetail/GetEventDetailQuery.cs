@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Bercy.TicketManagement.Application.Features.Events
+namespace Bercy.TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
     public class GetEventDetailQuery : IRequest<EventDetailVm>
     {
