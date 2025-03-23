@@ -3,7 +3,7 @@ using Bercy.TicketManagement.Application.Contracts.Persistence;
 using Bercy.TicketManagement.Domain.Entities;
 using MediatR;
 
-namespace Bercy.TicketManagement.Application.Features.Events
+namespace Bercy.TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
     public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery,
         EventDetailVm>
@@ -24,7 +24,7 @@ namespace Bercy.TicketManagement.Application.Features.Events
 
         public async Task<EventDetailVm> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
         {
-            var @event = (await _eventRepository.GetByIdAsync(request.Id));
+            var @event = await _eventRepository.GetByIdAsync(request.Id);
             var eventDetailDto = _mapper.Map<EventDetailVm>(@event);
 
             var category = await _categoryRepository.GetByIdAsync(@event.CategoryId);

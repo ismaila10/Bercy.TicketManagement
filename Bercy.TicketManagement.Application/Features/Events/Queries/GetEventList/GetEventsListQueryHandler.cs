@@ -3,7 +3,7 @@ using Bercy.TicketManagement.Application.Contracts.Persistence;
 using Bercy.TicketManagement.Domain.Entities;
 using MediatR;
 
-namespace Bercy.TicketManagement.Application.Features.Events
+namespace Bercy.TicketManagement.Application.Features.Events.Queries.GetEventList
 {
     public class GetEventsListQueryHandler : IRequestHandler<GetEventsListQuery,
         List<EventListVm>>

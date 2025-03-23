@@ -2,7 +2,8 @@
 
 namespace Bercy.TicketManagement.Application.Contracts.Persistence
 {
-    internal interface ICategoryRepository : IAsyncRepository<Category>
+    public interface ICategoryRepository : IAsyncRepository<Category>
     {
+        Task<List<Category>> GetCategoriesWithEvents(bool includePassedEvents);
     }
 }
