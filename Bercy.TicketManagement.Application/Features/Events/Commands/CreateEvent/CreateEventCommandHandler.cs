@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Bercy.TicketManagement.Application.Contracts.Infrastructure;
 using Bercy.TicketManagement.Application.Contracts.Persistence;
+using Bercy.TicketManagement.Application.Models.Mail;
 using Bercy.TicketManagement.Domain.Entities;
 using MediatR;
 
@@ -9,11 +11,13 @@ namespace Bercy.TicketManagement.Application.Features.Events.Commands.CreateEven
         Guid>
     {
         private readonly IEventRepository _eventRepository;
+        private readonly IEmailService _emailService;
         private readonly IMapper _mapper;
 
-        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper)
+        public CreateEventCommandHandler(IEventRepository eventRepository, IEmailService emailService, IMapper mapper)
         {
             _eventRepository = eventRepository;
+            _emailService = emailService;
             _mapper = mapper;
         }
 
@@ -28,6 +32,21 @@ namespace Bercy.TicketManagement.Application.Features.Events.Commands.CreateEven
                 throw new Exceptions.ValidationException(validationResult);
 
             @event = await _eventRepository.AddAsync(@event);
+
+            //Sending email notification to admin address
+            var email = new Email() { To = "iso.lodia@gmail.com", 
+                Body = $"A new enent wase created: {request}", 
+                Subject = "A  new event was created" 
+            };
+
+            try
+            {
+                await _emailService.SendEmailAsync(email);
+            }
+            catch (Exception ex)
+            {
+                // This shouldn't stop the API from doing else so this can be logged
+            }
 
             return @event.EventId;
         }

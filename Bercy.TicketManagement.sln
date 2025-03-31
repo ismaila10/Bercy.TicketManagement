@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bercy.TicketManagement.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bercy.TicketManagement.Persistence", "Bercy.TicketManagement.Persistence\Bercy.TicketManagement.Persistence.csproj", "{C692911A-9AB2-4187-AB46-C651328A1C68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bercy.TicketManagement.Infrastructure", "Bercy.TicketManagement.Infrastructure\Bercy.TicketManagement.Infrastructure.csproj", "{906F0B25-AD39-49E3-A725-2DFBB48C7E21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C692911A-9AB2-4187-AB46-C651328A1C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C692911A-9AB2-4187-AB46-C651328A1C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C692911A-9AB2-4187-AB46-C651328A1C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906F0B25-AD39-49E3-A725-2DFBB48C7E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906F0B25-AD39-49E3-A725-2DFBB48C7E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906F0B25-AD39-49E3-A725-2DFBB48C7E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906F0B25-AD39-49E3-A725-2DFBB48C7E21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{13E09C1B-EBFC-4334-A8E4-73E79EF06C2B} = {9DD1DBA8-FFAF-4B9B-96EC-38F59EA69A42}
 		{043D235D-756B-4307-A552-9F03AC7C5C3F} = {9DD1DBA8-FFAF-4B9B-96EC-38F59EA69A42}
 		{C692911A-9AB2-4187-AB46-C651328A1C68} = {994E73E3-332D-4E50-8453-5C90FF11BC36}
+		{906F0B25-AD39-49E3-A725-2DFBB48C7E21} = {994E73E3-332D-4E50-8453-5C90FF11BC36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED4BD288-1DA3-4EC5-8404-D7BADC7155B8}
