@@ -3,6 +3,7 @@ using Bercy.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using Bercy.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using Bercy.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using Bercy.TicketManagement.Application.Features.Events.Queries.GetEventList;
+using Bercy.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -64,6 +65,14 @@ namespace Bercy.TicketManagement.Api.Controllers
             await _mediator.Send(deleteEventCommand);
 
             return NoContent();
+        }
+
+        [HttpGet("export", Name = "ExportEvents")]
+        public async Task<FileResult> ExportEvents()
+        {
+            var fileDto = await _mediator.Send(new GetEventsExportQuery());
+
+            return File(fileDto.Data, fileDto.ContentType, fileDto.EventExportFileName);
         }
     }
 }
