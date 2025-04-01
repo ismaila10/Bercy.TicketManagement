@@ -1,4 +1,5 @@
-﻿using Bercy.TicketManagement.Application.Features.Events.Commands.CreateEvent;
+﻿using Bercy.TicketManagement.Api.Utility;
+using Bercy.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using Bercy.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using Bercy.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using Bercy.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
@@ -18,7 +19,7 @@ namespace Bercy.TicketManagement.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetAllEvents")]
+        [HttpGet("all", Name = "GetAllEvents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<List<EventListVm>>> GetAllEvents()
@@ -68,6 +69,7 @@ namespace Bercy.TicketManagement.Api.Controllers
         }
 
         [HttpGet("export", Name = "ExportEvents")]
+        [FileResultContentType("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var fileDto = await _mediator.Send(new GetEventsExportQuery());
