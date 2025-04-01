@@ -11,7 +11,7 @@ namespace Bercy.TicketManagement.Persistence
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration) 
         {
             services.AddDbContext<BercyTicketDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("")));
+                options.UseSqlServer(configuration.GetConnectionString("BercyTicketManagementConnectionString")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
 
