@@ -1,4 +1,5 @@
-﻿using Bercy.TicketManagement.Domain.Common;
+﻿using Bercy.TicketManagement.Application.Contracts;
+using Bercy.TicketManagement.Domain.Common;
 using Bercy.TicketManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,10 +7,19 @@ namespace Bercy.TicketManagement.Persistence
 {
     public class BercyTicketDbContext : DbContext
     {
+        private readonly ILoggedInUserService? _loggedInUserService;
+
         public BercyTicketDbContext(DbContextOptions<BercyTicketDbContext> options)
             : base(options)
         {            
         }
+
+        public BercyTicketDbContext(DbContextOptions<BercyTicketDbContext> options, ILoggedInUserService loggedInUserService)
+            : base(options)
+        {
+            _loggedInUserService = loggedInUserService;
+        }
+
 
         public DbSet<Event> Events { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -190,18 +200,16 @@ namespace Bercy.TicketManagement.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedDate = DateTime.Now;
-                        //entry.Entity.CreatedBy = _loggedInUserService.UserId;
+                        entry.Entity.CreatedBy = _loggedInUserService.UserId;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        //entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
+                        entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
                         break;
                 }
             }
             return base.SaveChangesAsync(cancellationToken);
         }
-
-
     }
 }
 

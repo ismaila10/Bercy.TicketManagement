@@ -2,6 +2,8 @@
 using Bercy.TicketManagement.Persistence;
 using Bercy.TicketManagement.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Bercy.TicketManagement.Application.Contracts;
+using Bercy.TicketManagement.Api.Services;
 
 namespace Bercy.TicketManagement.Api
 {
@@ -13,6 +15,10 @@ namespace Bercy.TicketManagement.Api
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+
+            builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddControllers();
 
